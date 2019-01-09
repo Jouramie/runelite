@@ -46,7 +46,7 @@ public class SlotLimitationRequirement implements ItemRequirement
 	}
 
 	@Override
-	public boolean fulfilledBy(Item[] items)
+	public boolean fulfilledByEquipment(Item[] items)
 	{
 		for (EquipmentInventorySlot slot : slots)
 		{
@@ -61,6 +61,12 @@ public class SlotLimitationRequirement implements ItemRequirement
 			}
 		}
 
+		return true;
+	}
+
+	@Override
+	public boolean fulfilledBy(Item[] equipment, Item[] inventory)
+	{
 		return true;
 	}
 

@@ -43,9 +43,13 @@ public class SingleItemRequirement implements ItemRequirement
 		return this.itemId == itemId;
 	}
 
-	@Override
-	public boolean fulfilledBy(Item[] items)
+	private boolean fulfilledBy(Item[] items)
 	{
+		if (items == null)
+		{
+			return false;
+		}
+
 		for (Item item : items)
 		{
 			if (item.getId() == itemId)
@@ -55,6 +59,12 @@ public class SingleItemRequirement implements ItemRequirement
 		}
 
 		return false;
+	}
+
+	@Override
+	public boolean fulfilledBy(Item[] equipment, Item[] inventory)
+	{
+		return fulfilledBy(equipment) || fulfilledBy(inventory);
 	}
 
 	@Override

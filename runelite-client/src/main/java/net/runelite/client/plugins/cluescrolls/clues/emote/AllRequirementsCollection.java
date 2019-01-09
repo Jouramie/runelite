@@ -51,11 +51,11 @@ public class AllRequirementsCollection implements ItemRequirement
 	}
 
 	@Override
-	public boolean fulfilledBy(Item[] items)
+	public boolean fulfilledBy(Item[] equipment, Item[] inventory)
 	{
 		for (ItemRequirement requirement : requirements)
 		{
-			if (!requirement.fulfilledBy(items))
+			if (!requirement.fulfilledBy(equipment, inventory))
 			{
 				return false;
 			}

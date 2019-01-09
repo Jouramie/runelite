@@ -28,6 +28,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import net.runelite.api.Item;
 import net.runelite.api.ItemID;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
@@ -58,7 +59,7 @@ public class CoordinateClue extends ClueScroll implements TextClueScroll, Locati
 
 		if (plugin.getInventoryItems() != null)
 		{
-			if (!HAS_SPADE.fulfilledBy(plugin.getInventoryItems()))
+			if (!HAS_SPADE.fulfilledByInventory(plugin.getInventoryItems()))
 			{
 				panelComponent.getChildren().add(LineComponent.builder().left("").build());
 				panelComponent.getChildren().add(LineComponent.builder().left("Requires Spade!").leftColor(Color.RED).build());

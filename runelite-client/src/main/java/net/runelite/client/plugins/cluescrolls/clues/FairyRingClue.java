@@ -83,7 +83,7 @@ public class FairyRingClue extends ClueScroll implements TextClueScroll, Locatio
 
 		if (plugin.getInventoryItems() != null)
 		{
-			if (!HAS_SPADE.fulfilledBy(plugin.getInventoryItems()))
+			if (!HAS_SPADE.fulfilledByInventory(plugin.getInventoryItems()))
 			{
 				panelComponent.getChildren().add(LineComponent.builder().left("").build());
 				panelComponent.getChildren().add(LineComponent.builder().left("Requires Spade!").leftColor(Color.RED).build());

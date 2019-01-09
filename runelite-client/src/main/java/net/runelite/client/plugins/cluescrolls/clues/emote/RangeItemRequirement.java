@@ -46,9 +46,13 @@ public class RangeItemRequirement implements ItemRequirement
 		return itemId >= startItemId && itemId <= endItemId;
 	}
 
-	@Override
-	public boolean fulfilledBy(Item[] items)
+	private boolean fulfilledBy(Item[] items)
 	{
+		if (items == null)
+		{
+			return false;
+		}
+
 		for (Item item : items)
 		{
 			if (item.getId() >= startItemId && item.getId() <= endItemId)
@@ -58,6 +62,12 @@ public class RangeItemRequirement implements ItemRequirement
 		}
 
 		return false;
+	}
+
+	@Override
+	public boolean fulfilledBy(Item[] equipment, Item[] inventory)
+	{
+		return fulfilledBy(equipment) || fulfilledBy(inventory);
 	}
 
 	@Override

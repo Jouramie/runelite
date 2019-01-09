@@ -31,7 +31,17 @@ public interface ItemRequirement
 {
 	boolean fulfilledBy(int itemId);
 
-	boolean fulfilledBy(Item[] items);
+	boolean fulfilledBy(Item[] equipment, Item[] inventory);
+
+	default boolean fulfilledByEquipment(Item[] items)
+	{
+		return fulfilledBy(items, null);
+	}
+
+	default boolean fulfilledByInventory(Item[] items)
+	{
+		return fulfilledBy(null, items);
+	}
 
 	String getCollectiveName(Client client);
 }
